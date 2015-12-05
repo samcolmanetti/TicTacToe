@@ -1,0 +1,135 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:aandroid="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="366dp"
+        android:rowCount="27"
+        android:columnCount="14"
+        android:orientation="vertical"
+        android:background="@drawable/board"
+        android:id="@+id/gameboard">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@drawable/x_80"
+            android:id="@+id/piece00"
+            android:onClick="pieceClicked"
+            android:clickable="true"
+            android:layout_alignTop="@+id/piece01"
+            android:layout_alignStart="@+id/piece20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@drawable/x_80"
+            android:id="@+id/piece01"
+            android:onClick="pieceClicked"
+            android:layout_alignTop="@+id/piece02"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@drawable/o_80"
+            android:id="@+id/piece02"
+            android:onClick="pieceClicked"
+            android:layout_marginTop="26dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/piece12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@drawable/o_80"
+            android:id="@+id/piece10"
+            android:onClick="pieceClicked"
+            android:layout_alignTop="@+id/piece11"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@drawable/o_80"
+            android:id="@+id/piece11"
+            android:onClick="pieceClicked"
+            android:layout_alignBaseline="@+id/piece12"
+            android:layout_alignBottom="@+id/piece12"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@drawable/x_80"
+            android:id="@+id/piece12"
+            android:onClick="pieceClicked"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/piece11"
+            android:layout_marginStart="21dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@drawable/x_80"
+            android:id="@+id/piece20"
+            android:onClick="pieceClicked"
+            android:layout_alignTop="@+id/piece21"
+            android:layout_alignEnd="@+id/piece10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@drawable/o_80"
+            android:id="@+id/piece21"
+            android:onClick="pieceClicked"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/piece11"
+            android:layout_marginBottom="28dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@drawable/o_80"
+            android:id="@+id/piece22"
+            android:onClick="pieceClicked"
+            android:layout_alignTop="@+id/piece21"
+            android:layout_alignStart="@+id/piece12" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connect"
+            android:id="@+id/btn_connect"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:minEms="10"
+            android:onClick="connect" />
+
+    </LinearLayout>
+
+</LinearLayout>
