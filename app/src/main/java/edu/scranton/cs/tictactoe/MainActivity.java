@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -14,6 +15,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        updateGameboard();
     }
 
     @Override
@@ -39,11 +41,50 @@ public class MainActivity extends Activity {
         Toast.makeText(MainActivity.this, "CONNECT BUTTON PRESSED", Toast.LENGTH_SHORT).show();
     }
 
+    private void updateGameboard (){
+        char[][] gameboard = new char[Constant.ACTUAL_SIZE][Constant.ACTUAL_SIZE];
+
+        for (int i = 0; i < Constant.ACTUAL_SIZE; i++){
+            gameboard[i][0] = Constant.EMBED_SYM;
+            gameboard[0][i] = Constant.EMBED_SYM;
+            gameboard[Constant.ACTUAL_SIZE-1][i] = Constant.EMBED_SYM;
+            gameboard[i][Constant.ACTUAL_SIZE-1] = Constant.EMBED_SYM;
+        }
+
+        for (int i = 1; i <= Constant.LOGICAL_SIZE; i++){
+            for (int j = 1; j <= Constant.LOGICAL_SIZE; j++){
+                gameboard[i][j] = Constant.EMPTY_SYM;
+            }
+        }
+        gameboard[1][1] = 'X';
+        gameboard[2][2] = 'O';
+        gameboard[3][3] = 'X';
+        gameboard[3][1] = 'O';
+
+        for (int i = 1; i <= Constant.LOGICAL_SIZE; i++){
+            for (int j = 1; j <= Constant.LOGICAL_SIZE; j++){
+                if (gameboard[i][j] != Constant.EMPTY_SYM){
+                    int resId = getResources().getIdentifier("piece" + (i-1) + (j-1), "id", getPackageName());
+                    TextView tvPiece = (TextView) findViewById(resId);
+                    tvPiece.setBackgroundResource(getPieceId(gameboard[i][j]));
+                }
+            }
+        }
+    }
+
+    private int getPieceId (char symbol){
+        switch(symbol){
+            case 'X':
+                return R.drawable.x_80;
+            case 'O':
+                return R.drawable.o_80;
+            default:
+                return -1;
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement

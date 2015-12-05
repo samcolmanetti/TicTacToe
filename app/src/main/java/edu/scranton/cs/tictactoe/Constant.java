@@ -11,5 +11,7 @@ public class Constant {
     public static final char MESSAGE = 'm';
     public static final char USERNAME = 'u';
     public static final char LEADERBOARD = 's';
+    public static final char EMBED_SYM = '*';
+    public static final char EMPTY_SYM = '-';
 
 }
